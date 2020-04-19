@@ -1,0 +1,19 @@
+<div class="sidenav">
+  <div class="logo-container">
+    <h5 class="text-center">Covid Tracker</h5>
+  </div>
+  
+  <div class="mt-5 text-center" *ngIf="pangasinan_case">
+    <h5>Confirmed</h5>
+    <span class="count confirmed">{{ pangasinan_case.data.total }}</span>
+
+    <h5>Died</h5>
+    <span class="count died">{{ pangasinan_case.data.died }}</span>
+
+    <h5>Recovered</h5>
+    <span class="count recovered">{{ pangasinan_case.data.recovered }}</span>
+  </div>
+</div>
+
+<!-- map -->
+<div class="map" id="map" class="match-parent"></div>
