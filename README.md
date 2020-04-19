@@ -1,0 +1,2 @@
+# pct
+Pangasinan Covid Tracker
