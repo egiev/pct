@@ -12,7 +12,7 @@ import {municipalities} from '../shared/municipality'
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit{
-  pangasinan_case: Array<any>
+  pangasinan_case: any;
 
   map: mapboxgl.Map
   style = 'mapbox://styles/movah4ch/ck92e31360ot11io62dbea7so';
@@ -38,7 +38,7 @@ export class AppComponent implements OnInit{
 
     this.http.get('http://localhost:3000/api/features/').subscribe((res:any) => {
       this.pangasinan_case = res
-    
+
       const geojson = res.data.features.map(i => ({
         type: i.type,
         geometry: i.geometry,
@@ -53,7 +53,7 @@ export class AppComponent implements OnInit{
             features: geojson
           }
         })
-  
+
         this.map.addLayer({
           'id': `covid`,
           'type': 'fill',
@@ -64,7 +64,7 @@ export class AppComponent implements OnInit{
           },
           'filter': ['!=', 'TOTAL', 0],
         })
-  
+
         this.map.on('click', 'covid', (e) => {
           let { NAME_2, TOTAL, DIED, RECOVERED } = e.features[0].properties
           let html = `
@@ -72,7 +72,7 @@ export class AppComponent implements OnInit{
             <p>Confirmed: ${TOTAL}</p>
             <p>Died: ${DIED}</p>
             <p>Recoverd: ${RECOVERED}</p>`
-  
+
           new mapboxgl.Popup()
             .setLngLat(e.lngLat)
             .setHTML(html)

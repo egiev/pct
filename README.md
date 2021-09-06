@@ -20,6 +20,12 @@ This application is developed using Mongo, Express, Angular and Node (MEAN) Stac
 
 `mongod`
 
+- If you are using Ubuntu. Run this command
+
+`sudo mkdir -p /data/db/`
+
+`sudo chown `id -u` /data/db`
+
 ### Running the server
 
 ````````````````````
@@ -27,6 +33,7 @@ cd server
 npm install
 npm run server
 ````````````````````
+Note: mongod should be running
 
 ### Running the client
 You must have Angular installed in your machine
